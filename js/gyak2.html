@@ -10,7 +10,14 @@
         {
             width: 65px;
             height: 65px;
+            border: 2px solid black;
+            border-radius: 12px;
+            padding: 10px;
         }
+        #c{
+            width: 135px;
+        }
+
     </style>
 </head>
 <body>
@@ -28,7 +35,7 @@
             }
             else
             {
-                if (k.innerHTML === "0")
+                if (k.innerHTML === "0" || beforemuvelet ==="=")
             {
                 k.innerHTML = "";
             }
@@ -37,16 +44,41 @@
            
         }
         let before=0;
-        let muvelet="+";
+        let beforemuvelet="+";
         function muvelet(jel)
         {
 
-            if (muvelet === "+")
+            if (beforemuvelet === "+")
             {
-                before += parseInt(document.getElementById("kijelzo").innerHTML)
-                muvelet = jel;
+                before += parseInt(document.getElementById("kijelzo").innerHTML);
+                beforemuvelet = jel;
+                
             }
-            console.log(jel);
+            else if (beforemuvelet === "-")
+            {
+                before -= parseInt(document.getElementById("kijelzo").innerHTML);
+                beforemuvelet = jel;
+                
+            }
+            else if (beforemuvelet === "*")
+            {
+                before *= parseInt(document.getElementById("kijelzo").innerHTML);
+                beforemuvelet = jel;
+                
+            }
+            else if (beforemuvelet === "/")
+            {
+                before /= parseInt(document.getElementById("kijelzo").innerHTML);
+                beforemuvelet = jel;
+                
+            }
+
+            document.getElementById("kijelzo").innerHTML="0";
+            console.log(jel,before);
+            if (jel === "=")
+            {
+                document.getElementById("kijelzo").innerHTML=before;
+            }
         }
     </script>
     <h1>Szamologep</h1>
@@ -54,20 +86,29 @@
     <form>
         <input type="button" value="7" id="" onclick="nyomas('7')">
         <input type="button" value="8" id="" onclick="nyomas('8')">
-        <input type="button" value="9" id="" onclick="nyomas('9')"><br>
+        <input type="button" value="9" id="" onclick="nyomas('9')">
+        <input type="button" value="+" id="" onclick="muvelet('+')">
+        <br>
         <input type="button" value="4" id="" onclick="nyomas('4')">
         <input type="button" value="5" id="" onclick="nyomas('5')">
-        <input type="button" value="6" id="" onclick="nyomas('6')"><br>
+        <input type="button" value="6" id="" onclick="nyomas('6')">
+        <input type="button" value="-" id="" onclick="muvelet('-')">
+        <br>
         <input type="button" value="1" id="" onclick="nyomas('1')">
         <input type="button" value="2" id="" onclick="nyomas('2')">
-        <input type="button" value="3" id="" onclick="nyomas('3')"><br>
-        <input type="button" value="0" id="" onclick="nyomas('0')">
-        <input type="button" value="C" id="" onclick="nyomas('C')"><br>
-
-        <input type="button" value="+" id="" onclick="muvelet('+')">
-        <input type="button" value="-" id="" onclick="muvelet('-')">
+        <input type="button" value="3" id="" onclick="nyomas('3')">
         <input type="button" value="*" id="" onclick="muvelet('*')">
+        <br>
+        <input type="button" value="0" id="" onclick="nyomas('0')">
+        <input type="button" value="C" id="c" onclick="nyomas('C')">
         <input type="button" value="/" id="" onclick="muvelet('/')">
+        <br>
+        <input type="button" value="=" id="" onclick="muvelet('=')">
+
+        
+        
+        
+        
     </form>
 </body>
 </html>
