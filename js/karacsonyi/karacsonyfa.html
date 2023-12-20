@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="init()">
+    <script>
+        function init()
+        {
+            console.log("start");
+          
+        }
+        function gombdisz()
+        {
+            let maxH
+            elem=document.createElement("img");
+            elem.src="disz1.jpg";
+            elem.style.height=rand(30,100);
+            elem.style.width=rand(30,100);
+            elem.style.position="absolute";
+            elem.style.left=rand(0,500)+"px";
+            elem.style.top="absolute";
+
+
+            document.getElementById("fenyo").appendChild(elem)
+        }
+        function road(min, max)
+        {
+            return Math.floor(Math.random() * (max-min+1)) + 1;
+        }
+    </script>
+    <div id="fenyo"></div>
+
+</body>
+</html>
