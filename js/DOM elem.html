@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dinamikus urlapszeruseg</title>
+</head>
+<body>
+    <h1>dinamikus lista</h1>
+    <button onclick="ujelem()">Uj elem</button>
+    <div id="container"></div>
+    <script>
+        function ujelem()
+        {
+            //console.log("asdasdasdasdasd");
+            let tarolo = document.getElementById("container");
+            uj=document.createElement("div");
+            uj.innerHTML="valami";
+            //uj.onclick = function() {uj.style.border="1px solid red"}
+            //uj.onclick = function() {this.style.border="1px solid red"}
+            uj.ondblclick=function(){kivalaszt(this)};
+            uj.ondblclick=function(){this.remove();}; 
+            tarolo.appendChild(uj);
+
+        }
+        function kivalaszt(elem)
+        {
+            if(elem.style.border!=="")
+            {
+            elem.style.border="";
+            }
+            else
+            {
+                elem.style.border="1px solid red";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
