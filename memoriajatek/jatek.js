@@ -2,7 +2,7 @@ var kepekurl = [
     "1.jpg","2.jpg","3.jpg","IMG_20220528_115507.jpg","IMG_20220528_121029.jpg","IMG_20220528_121415.jpg"
 ]
 var pardb=6;
-
+var kattintas=0;
 function init()
 {
     //console.log("hao");
@@ -22,7 +22,7 @@ function kepkirakas()
         uj.className="kartya";                     //<div cass="kartya"></div>
         uj.onclick=function(){
           uj.style.backgroundImage="url(kepek/" + kepekurl[i]+ ")"
-          
+
         };
         kartyak.push(uj);
 
