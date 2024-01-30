@@ -19,9 +19,19 @@ function kepkirakas()
         for(let i = 0; i < pardb; i++)
         {
         let uj=document.createElement("div");   //<div></div>
-        uj.className="kartya";                     //<div cass="kartya"></div>
+        uj.className="kartya";                     //<div class="kartya"></div>
         uj.onclick=function(){
-          uj.style.backgroundImage="url(kepek/" + kepekurl[i]+ ")"
+          // csak ketto kartya fent
+          if (kattintas < 2)
+          {
+            uj.style.backgroundImage="url(kepek/" + kepekurl[i]+ ")";
+            uj.dataset.felforditva="true";
+          } 
+          kattintas++;
+          if (kattintas === 2)
+          {
+            setTimeout(visszafordit, 2000)
+          }
 
         };
         kartyak.push(uj);
@@ -36,8 +46,36 @@ function kepkirakas()
       asztal.appendChild(kartyak[i]);     
     }
 }
+function visszafordit()
+{
+  const lapok= document.getElementById("asztal").children;
+  //console.log(lapok);
+  const aktiv = [];
+  for (let i = 0; i < lapok.length; i++)
+  {
+    if (lapok[i].dataset.felforditva === "true")
+    {
+      aktiv.push(lapok[i]);
+    }
+  }
 
-const points = [40, 100, 1, 5, 25, 10];  
+//console.log(aktiv);
+  if (aktiv[0].style.backgroundImage !== aktiv[1].style.backgroundImage)
+  {
+    aktiv[0].style.backgroundImage ="";
+    aktiv[1].style.backgroundImage ="";
+    
+  }
+  else
+  {
+    aktiv[0].onclick="";
+    aktiv[0].onclick="";
+  }
+  aktiv[0].dataset.felforditva="";
+  aktiv[1].dataset.felforditva="";
+  kattintas = 0;
+}
+//const points = [40, 100, 1, 5, 25, 10];  
 
 function kever(points) {
   for (let i = points.length -1; i > 0; i--) {
