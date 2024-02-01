@@ -68,12 +68,38 @@ function visszafordit()
   }
   else
   {
+    //part talaltunk
     aktiv[0].onclick="";
     aktiv[0].onclick="";
+    if(!vanemeg())
+    {
+      nyertel();
+    }
   }
   aktiv[0].dataset.felforditva="";
   aktiv[1].dataset.felforditva="";
   kattintas = 0;
+}
+function vanemeg()
+{
+  const lapok= document.getElementById("asztal").children;
+  //console.log(lapok);
+  let darab = 0;
+  for (let i = 0; i < lapok.length; i++)
+  {
+    if (lapok[i].style.backgroundImage === "")
+    {
+      darab++;
+    }
+  }
+  return darab > 0;
+}
+
+function nyertel()
+{
+  let uj=document.createElement("div");
+  uj.innerHTML="Game Over";
+  
 }
 //const points = [40, 100, 1, 5, 25, 10];  
 
