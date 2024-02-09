@@ -2,13 +2,13 @@ var kepekurl = [
     "1.jpg","2.jpg","3.jpg","IMG_20220528_115507.jpg","IMG_20220528_121029.jpg","IMG_20220528_121415.jpg"
 ]
 var pardb=6;
-var kattintas=0;
 function init()
 {
     //console.log("hao");
     kepkirakas();
 }
-
+var kattintas=0;
+let lathatoLapok = [];
 function kepkirakas()
 {
 
@@ -22,13 +22,19 @@ function kepkirakas()
         uj.className="kartya";                     //<div class="kartya"></div>
         uj.onclick=function(){
           // csak ketto kartya fent
-          if (kattintas < 2)
+          //if (typeof uj.dataset.felforditva!== 'undifined' && uj.dataset.felforditva === null)
+          /*if (lathatoLapok.length < 2 && 
+            !(typeof uj.dataset.felforditva !== 'undefined'
+            && uj.dataset.felforditva !== null)
+            && uj.dataset.felforditva !== "true")*/ 
+          if (lathatoLapok.length < 2 && !lathatoLapok.includes(uj))
           {
+            lathatoLapok.push(uj);
             uj.style.backgroundImage="url(kepek/" + kepekurl[i]+ ")";
             uj.dataset.felforditva="true";
           } 
-          kattintas++;
-          if (kattintas === 2)
+         
+          if (lathatoLapok.length === 2)
           {
             setTimeout(visszafordit, 2000)
           }
@@ -48,18 +54,18 @@ function kepkirakas()
 }
 function visszafordit()
 {
-  const lapok= document.getElementById("asztal").children;
+  //const lapok = document.getElementById("asztal").children;
   //console.log(lapok);
   const aktiv = [];
-  for (let i = 0; i < lapok.length; i++)
+  for (let i = 0; i < lathatoLapok.length; i++)
   {
-    if (lapok[i].dataset.felforditva === "true")
-    {
-      aktiv.push(lapok[i]);
-    }
+    aktiv.push(lathatoLapok[i]);
   }
 
 //console.log(aktiv);
+if (aktiv.length >= 2)
+{
+  
   if (aktiv[0].style.backgroundImage !== aktiv[1].style.backgroundImage)
   {
     aktiv[0].style.backgroundImage ="";
@@ -78,7 +84,8 @@ function visszafordit()
   }
   aktiv[0].dataset.felforditva="";
   aktiv[1].dataset.felforditva="";
-  kattintas = 0;
+  lathatoLapok = [];
+}
 }
 function vanemeg()
 {

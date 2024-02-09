@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tomb
+    </title>
+</head>
+<body>
+    <script>
+        const szamok = [];
+        for (let i = 1; i <= 100; i++)
+        {
+            szamok.push(i)
+        }
+        console.log(szamok);
+        const szamok2 = [];
+        for (let i = 1; i <= 100; i++)
+        {
+            szamok2.unshift(i)
+        }
+        console.log(szamok2);
+        const szamok3 = [];
+        for (let i = 1; i <= 100; i++)
+        {
+            szamok3.splice(i, 0, i)
+        }
+        console.log(szamok3);
+
+        const szamok4 = [];
+        for (let i = 100; i <= 1; i--)
+        {
+            szamok4.push(i)
+        }
+        console.log(szamok4)
+    </script>
+</body>
+</html>
