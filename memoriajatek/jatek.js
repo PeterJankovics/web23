@@ -134,9 +134,8 @@ function oraShow()
   const ido = new Date(kulonbseg);
   const mp = ido.getSeconds();
   const perc = ido.getMinutes();
-  document.getElementById("ido").innerHTML=perc+":"+ mp;
+  document.getElementById("ido").innerHTML=perc+":"+(mp < 10 ? "0": "");
 }
-
 
 function nyertel()
 {
