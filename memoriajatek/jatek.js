@@ -19,8 +19,15 @@ function kepkirakas()
         for(let i = 0; i < pardb; i++)
         {
         let uj=document.createElement("div");   //<div></div>
-        uj.className="kartya";                     //<div class="kartya"></div>
+        uj.className="kartya";       //<div class="kartya"></div>
+        uj.dataset.hatterKep="url(kepek/" + kepekurl[i]+ ")";       
         uj.onclick=function(){
+          if(kattintas===0)
+          {
+            oraStart();
+          }
+          kattintas++;
+          
           // csak ketto kartya fent
           //if (typeof uj.dataset.felforditva!== 'undifined' && uj.dataset.felforditva === null)
           /*if (lathatoLapok.length < 2 && 
@@ -52,9 +59,10 @@ function kepkirakas()
       asztal.appendChild(kartyak[i]);     
     }
 }
+const megtalaltParok = [];
 function visszafordit()
 {
-  //const lapok = document.getElementById("asztal").children;
+  
   //console.log(lapok);
   const aktiv = [];
   for (let i = 0; i < lathatoLapok.length; i++)
@@ -77,6 +85,8 @@ if (aktiv.length >= 2)
     //part talaltunk
     aktiv[0].onclick="";
     aktiv[0].onclick="";
+    megtalaltParok.push(aktiv[0])
+    megtalaltParok.push(aktiv[1])
     if(!vanemeg())
     {
       nyertel();
@@ -84,9 +94,19 @@ if (aktiv.length >= 2)
   }
   aktiv[0].dataset.felforditva="";
   aktiv[1].dataset.felforditva="";
+  const lapok = document.getElementById("asztal").children;
+  for(let i = 0; i < lapok.length; i++)
+    { 
+      lapok[i].dataset.felforditva="";
+    }
+    for(let i = 0; i < megtalaltParok.length; i++)
+    { 
+      megtalaltParok[i].style.backgroundImage=megtalaltParok[i].dataset.hatterKep;
+    }
   lathatoLapok = [];
+  }
 }
-}
+
 function vanemeg()
 {
   const lapok= document.getElementById("asztal").children;
@@ -101,6 +121,22 @@ function vanemeg()
   }
   return darab > 0;
 }
+let startTime = "";
+function oraStart()
+{
+  startTime = new Date();
+  setInterval(oraShow,1000)
+}
+function oraShow()
+{
+  const aktualTime = new Date();
+  const kulonbseg = aktualTime-startTime;
+  const ido = new Date(kulonbseg);
+  const mp = ido.getSeconds();
+  const perc = ido.getMinutes();
+  document.getElementById("ido").innerHTML=perc+":"+ mp;
+}
+
 
 function nyertel()
 {
