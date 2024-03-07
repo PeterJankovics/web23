@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>petofi</title>
+</head>
+<body>
+    <script>
+        var petofi = [
+            "petofi sandor",
+            "petrovics sandor",
+            "1823.jan.1, kiskoros - 1849?, ?",
+            "jomodi csaladban szuletett.",
+            "apja: meszaros, anyja: cseled",
+            "iskolai: pest, kecskemet, kiskoros, kiskunfelegyhaza, aszod"
+        ]
+
+        function init()
+        {
+            let cim = document.createElement("h1");
+            cim.innerHTML=petofi[0];
+            cim.onclick=kovetkezo;                                        
+            document.getElementsByTagName("body")[0].appendChild(cim);
+            
+        }
+
+        var szamlalo = 0;
+        function kovetkezo()
+        {
+            console.log(document.getElementsByTagName("body")[0].lastElementChild);
+            let elem=document.createElement("div");
+            elem.innerHTML=petofi[++szamlalo];
+            if (szamlalo < petofi.length)
+            {
+                elem.onclick=kovetkezo;
+            }
+            
+            document.getElementsByTagName("body")[0].appendChild(elem);
+        }
+        init();
+    </script>
+</body>
+</html>

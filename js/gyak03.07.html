@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gyakorlas</title>
+</head>
+<body>
+    <script>
+        class auto
+        {
+            constructor(nev, szin, evjarat)
+            {
+                this.nev = nev;
+                this.szin = szin;
+                this.evjarat = evjarat;
+
+            }
+             get tulajdonos()
+             {
+                return this._tulaj;
+             }
+             set tulajdonos(nev)
+             {
+                this._tulaj = nev[0].toUpperCase() + nev.substring(1).toLowerCase();
+             }
+
+             static motorhang()
+             {
+                if (tipus === "benzines")
+                {
+                    return "vrrumm bumm";
+                }
+                else if (tipus === "dizeles")
+                {
+                    return "TKTKKTKTKT";
+                }
+                else if (tipus === "elektromos")
+                {
+                    return "iiiiiii";
+                }
+
+                return "nincs is motor";
+                
+             }
+        }
+
+        const a1 = new auto("Audi", "fekete", 2024);
+        console.log(a1.nev);
+        console.log(a1.tulajdonos);
+
+        a1.tulajdonos="bence";
+        console.log(a1.tulajdonos);
+
+       const a2 = new auto("Ford", "piros", 2021);
+       console.log(auto.motorhang());
+
+
+       
+    </script>
+</body>
+</html>
