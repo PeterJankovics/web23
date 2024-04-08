@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <title>Felcsi</title>
+</head>
+<body onload="loadDoc()">
+    <div id="demo"></div>
+
+    <script>
+        // json file kieggeszites legalabb negy tulajdonsaggal, ezeket meg kell jeleniteni.
+        // megformazas, megfelelo kinezet (keret betutipus stb.)
+        // (szorgalmi) meg ket emberrrol ilyen adat keszites.    
+        function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            const valasz = JSON.parse(this.response);
+            console.log(valasz);
+            document.getElementById("demo").innerHTML = this.responseText;
+        };
+        xhttp.open("GET", "valami copy.json");
+        xhttp.send();
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <title>Felcsi</title>
+</head>
+<body onload="loadDoc()">
+    <div id="demo"></div>
+
+    <script>
+        function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            document.getElementById("demo").innerHTML =
+            this.responseText;
+        };
+        xhttp.open("GET", "valami.txt");
+        xhttp.send();
+      }
+    </script>
+</body>
+</html>

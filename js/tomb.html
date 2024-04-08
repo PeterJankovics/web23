@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hazi
+    </title>
+    <style>
+        body{
+            background-color: blue;
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>haziföladat</h1>
+    <div id="szoveg"></div>
+    <script>
+        const matekhf = {
+            db: 0,
+            hatarido: "hétfő",
+            tema: "valami szarsag",
+            kesz: false,
+            keszvan: function() {
+                if (this.kesz){
+                    return "jaaaaaaaaaaaaaaaaaaa";
+                }
+                else{
+                    return "sooohaaaaaa";
+                }
+            },
+            get mennyiseg() {
+                return this.db;
+            },
+            set ujmennyiseg(szam) {
+                this.db = szam;
+            }
+        }
+        let szoveg = document.getElementById("szoveg");
+        szoveg.innerHTML += "memnnnyyyi: " + matekhf.mennyiseg +
+            "<br>feladat: " + matekhf.tema +
+            "<br>határidő: " + matekhf.hatarido +
+            "<br>megvaaan-ee? " + matekhf.keszvan();
+    </script>
+</body>
+</html>
